@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Evaluación 4: API Rest</title>
+    <style>
+
+        body {
+            background-color: black;
+        }
+
+        .container {
+            background-color: #f8d7da;
+            border-radius: 10px;
+            padding: 20px;
+            margin: auto;
+            max-width: 400px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .center-content {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Evaluación 4: API Rest</h1>
+
+        <h2>Sin Framework</h2>
+        <div class="center-content">
+            <a href="ver_json/" type="button" class="btn btn-info">Ver JSON</a>
+        </div>
+
+        <h2>Class View</h2>
+        <div class="center-content">
+            <form onsubmit="redirectToDetailView(document.getElementById('pkInputClassView').value); return false;"
+                class="d-inline">
+                <label for="pkInputClassView">ID:</label>
+                <input type="text" id="pkInputClassView" name="id" value="{{ id }}" placeholder="Ingrese el ID">
+                <div class="d-inline">
+                    <button type="submit" class="btn btn-warning">MiembroDetalle</button>
+                </div>
+            </form>
+            <a href="memberList/" type="button" class="btn btn-primary">MiembroList</a>
+        </div>
+
+
+        
+        <h2>Function View</h2>
+        <div class="center-content">
+            <form onsubmit="redirectToMiembroDetalle(document.getElementById('idInput').value); return false;" class="d-inline">
+                <label for="idInput">ID:</label>
+                <input type="text" id="idInput" name="id" value="{{ id }}" placeholder="Ingrese el ID">
+                <div class="d-inline">
+                    <button type="submit" class="btn btn-success">Ir a Detalle</button>
+                </div>
+            </form>
+            <a href="miembro_ver/" type="button" class="btn btn-danger">Lista</a>
+        </div>
+
+    </div>
+
+    <script>
+        function redirectToDetailView(id) {
+            const url = `memberDetail/${id}`;
+            window.location.href = url;
+        }
+
+        function redirectToMiembroDetalle(id) {
+            const url = `miembro_detalle/${id}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>
